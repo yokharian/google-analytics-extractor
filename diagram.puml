@@ -1,0 +1,27 @@
+@startuml Google Analytics Extractor
+!theme plain
+skinparam componentStyle rectangle
+
+actor "Data Team" as team
+participant "Extraction\nEngine" as engine
+participant "Google Analytics\nv3 API" as ga3
+participant "Google Analytics\nv4 API" as ga4
+database "Data\nWarehouse" as dw
+
+team -> engine: Trigger daily extraction
+engine -> engine: Build queries\n(split dates, segment)
+
+alt GA v3 query
+    engine -> ga3: GET /v3/data\n(paginated)
+    ga3 --> engine: v3 data
+else GA v4 query
+    engine -> ga4: GET /v4/data\n(paginated)
+    ga4 --> engine: v4 data
+end
+
+engine -> engine: Retry on error\n(exponential backoff)
+engine -> engine: Normalize & transform\n(unified schema)
+engine -> dw: Upsert data
+dw --> team: Dashboards & reports
+
+@enduml
