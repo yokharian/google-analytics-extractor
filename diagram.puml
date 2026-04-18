@@ -1,5 +1,5 @@
 @startuml Google Analytics Extractor
-!theme plain
+!theme sketchy-outline
 skinparam componentStyle rectangle
 
 actor "Data Team" as team

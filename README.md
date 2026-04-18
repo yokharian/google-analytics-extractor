@@ -1,5 +1,7 @@
 # Google Analytics Extractor
 
+![Architecture](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/yokharian/google-analytics-extractor/master/diagram.puml)
+
 Daily ETL pipeline extracting data from Google Analytics v3 and v4 APIs into a data warehouse.
 
 ## Tech Stack
