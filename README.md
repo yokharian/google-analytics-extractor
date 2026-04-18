@@ -27,9 +27,6 @@ Daily ETL pipeline extracting data from Google Analytics v3 and v4 APIs into a d
 - Idempotent warehouse loading
 - Unified output schema across both API versions
 
-## Architecture
-
-See [diagram.puml](./diagram.puml) for system architecture.
 
 ## References
 
